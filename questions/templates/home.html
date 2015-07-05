@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+{% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Questions@Clash</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static "css/logo-nav.css" %}" rel="stylesheet">
+   
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="{% static "img/clashflat.png" %}" alt="">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a style = "font-size:20px;" href="#">Leader Board</a>
+                    </li>
+                    <li>
+                        <a style = "font-size:20px;" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+    <div class="row-fluid">
+        <div class="span12" style = "padding-top:25px;">
+            <div class="span6">
+                <div class="area">
+                    <form class="form-horizontal" action="/signup/" method="post">
+                        <div class="heading">
+                            <h4 class="form-heading">Sign Up</h4>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label class="control-label" for="inputFirst">First
+                            Name</label>
+
+                            <div class="controls">
+                                <input name="fname" id="inputFirst" placeholder=
+                                "E.g. Swapnil" type="text">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="inputLast">Last
+                            Name</label>
+
+                            <div class="controls">
+                                <input name="lname" id="inputLast" placeholder="E.g. Khandekar"
+                                type="text">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for=
+                            "inputEmail">Email</label>
+
+                            <div class="controls">
+                                <input name="mail" id="inputEmail" placeholder=
+                                "E.g. swa.khandekar@gmail.com" type="text">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for=
+                            "inputUser">Username</label>
+
+                            <div class="controls">
+                                <input name="uname" id="inputUser" placeholder=
+                                "E.g. swapk" type="text">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for=
+                            "inputPassword">Password</label>
+
+                            <div class="controls">
+                                <input name="pword" id="inputPassword" placeholder=
+                                "Min. 8 Characters" type="password">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <button class=
+                                "btn btn-success" type="submit">Sign
+                                Up</button> 
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <button class="close" data-dismiss="alert" type=
+                            "button">×</button> <strong>Confirmation:</strong>
+                            
+                            Thank you for your registration.
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="span6">
+                <div class="area">
+                    <form class="form-horizontal" action="/login/" method="post">
+                        <div class="heading">
+                            <h4 class="form-heading">Sign In</h4>
+                        </div>
+
+                        
+
+                        <div class="control-group">
+                            <label class="control-label" for=
+                            "inputUsername">Username</label>
+
+                            <div class="controls">
+                                <input name="uname" id="inputUsername" placeholder=
+                                "E.g. swapk" type="text">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for=
+                            "inputPassword">Password</label>
+
+                            <div class="controls">
+                                <input name="pword" id="inputPassword" placeholder=
+                                "Min. 8 Characters" type="password">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="controls">
+                                
+                                <button class="btn btn-success" type=
+                                "submit">Sign In</button> 
+                            </div>
+                        </div>
+
+                        <div class="alert alert-error">
+                            <button class="close" data-dismiss="alert" type=
+                            "button">×</button> <strong>Access Denied!</strong>
+                            Please provide valid authorization.
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="{% static "js/jquery.js" %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+
+</body>
+
+</html>

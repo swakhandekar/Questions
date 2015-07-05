@@ -1,0 +1,36 @@
+<html>
+<head>
+  {% load staticfiles %}
+
+  <title>Zyloon</title>
+  <style>
+      body {
+        background-image: url("{% static "img/3.png" %}");
+        background-position: center top;
+        background-size: 100% auto;
+      }
+  </style>
+
+
+</head>
+
+
+<div style= "float:right; margin-top:260px; padding-right:230px">
+      <form action="/save/" method="post">
+          <label for="uname">Username name: </label>
+          <input type="text" name="uname">
+          <input type="email" name="mail">
+          <input type="submit" value="OK">
+      </form>    
+</div>
+
+<div style="padding-left:230px;padding-top:155px;height:600px;width:650px;color:#fff;text-align:center">
+
+    <h1 style="font-size:50px">The next big thing is coming...</h1>
+    <br>
+    <h3>We're pretty thrilled to unveil our latest creation. Sign up below to be notified when we officially launch!</h3>
+
+</div>
+
+</body>
+</html>
