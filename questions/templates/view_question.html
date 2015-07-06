@@ -44,7 +44,7 @@ textarea { resize:none; }
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="{% static "img/clashflat.png" %}" alt="">
                 </a>
             </div>
@@ -55,12 +55,9 @@ textarea { resize:none; }
                         <a style = "font-size:20px;" href="/leaderboard/">LeaderBoard</a>
                     </li>
                     <li>
-                        <a style = "font-size:20px;" href="/my_questions/">My Questions</a>
-                    </li>
-                    <li>
                         <a style = "font-size:20px;" href="#">Contact</a>
                     </li>
-                    <li style = "margin-left:280px;">
+                    <li style = "margin-left:370px;">
                         <a style = "font-size:20px;" href="/logout">Logout</a>
                     </li>
                 </ul>
@@ -71,17 +68,17 @@ textarea { resize:none; }
     </nav>
 
     <!-- Page Content -->
-    <form class="form-horizontal" action="/submit/" method = "post">
+    <div class="form-horizontal">
 <fieldset>
 
 <!-- Form Name -->
-<legend style="text-align:center;padding-top:15px;">Add Your Question</legend>
+<legend style="text-align:center;padding-top:15px;">Question {{qustion.id}}</legend>
 
 <!-- Textarea -->
 <div class="control-group">
   <label class="control-label" for="ques">Question :</label>
   <div class="controls">                     
-    <textarea required style="width:1000px;height:300px;" id="ques" name="ques" placeholder="Enter your  question here ....."></textarea>
+    <textarea required style="width:1000px;height:300px;" id="ques" name="ques" >{{question.title}}</textarea>
   </div>
 </div>
 
@@ -89,7 +86,7 @@ textarea { resize:none; }
 <div class="control-group">
   <label class="control-label" for="op1">Option 1:</label>
   <div class="controls">                     
-    <textarea required style="width:700px;height:100px;" id="op1" name="op1" placeholder="First option"></textarea>
+    <textarea required style="width:700px;height:100px;" id="op1" name="op1" >{{question.op1}}</textarea>
   </div>
 </div>
 
@@ -97,7 +94,7 @@ textarea { resize:none; }
 <div class="control-group">
   <label class="control-label" for="op2">Option 2:</label>
   <div class="controls">                     
-    <textarea required style="width:700px;height:100px;" id="op2" name="op2" placeholder="Second option"></textarea>
+    <textarea required style="width:700px;height:100px;" id="op2" name="op2" >{{question.op2}}</textarea>
   </div>
 </div>
 
@@ -105,7 +102,7 @@ textarea { resize:none; }
 <div class="control-group">
   <label class="control-label" for="op3">Option 3:</label>
   <div class="controls">                     
-    <textarea required style="width:700px;height:100px;" id="op3" name="op3" placeholder="Third Option"></textarea>
+    <textarea required style="width:700px;height:100px;" id="op3" name="op3" >{{question.op3}}</textarea>
   </div>
 </div>
 
@@ -113,45 +110,35 @@ textarea { resize:none; }
 <div class="control-group">
   <label class="control-label" for="op4">Option 4:</label>
   <div class="controls">                     
-    <textarea required style="width:700px;height:100px;" id="op4" name="op4" placeholder="Fourth Option"></textarea>
+    <textarea required style="width:700px;height:100px;" id="op4" name="op4" >{{question.op4}}</textarea>
   </div>
 </div>
 
 <!-- Multiple Radios (inline) -->
 <div class="control-group">
-  <label class="control-label" for="radios">Select Ans:</label>
+  <label class="control-label" for="radios">Submitted Ans:</label>
   <div class="controls">
-    <label class="radio inline" for="radios-0">
-      <input name="radios" id="radios-0" value="A" checked="checked" type="radio">
-      A
-    </label>
-    <label class="radio inline" for="radios-1">
-      <input name="radios" id="radios-1" value="B" type="radio">
-      B
-    </label>
-    <label class="radio inline" for="radios-2">
-      <input name="radios" id="radios-2" value="C" type="radio">
-      C
-    </label>
-    <label class="radio inline" for="radios-3">
-      <input name="radios" id="radios-3" value="D" type="radio">
-      D
-    </label>
+    <b>{{question.ans}}</b>
   </div>
 </div>
 
-
+  <input type="hidden" name="id" value={{question.id}}>
 <!-- Button -->
 <div class="control-group">
   <label class="control-label" for="submit"></label>
   <div class="controls">
-    <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+    {% if not upvoted %}
+    <a href="/upvote/?x={{question.id}}">
+      <div class="btn btn-primary">Upvote this Question</div>
+    </a>
+    {% else %}
+    <h4>You have upvoted this question already!</h4>
+    {% endif %}
   </div>
 </div>
 
 </fieldset>
-</form>
-
+</div>
     <!-- /.container -->
 
     <!-- jQuery -->

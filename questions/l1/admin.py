@@ -4,3 +4,4 @@ from l1.models import *
 
 admin.site.register(Question)
 admin.site.register(Student)
+admin.site.register(Votes)

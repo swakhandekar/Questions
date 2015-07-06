@@ -24,3 +24,10 @@ class Student(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+class Votes(models.Model):
+    ques = models.ForeignKey(Question)
+    te = models.ForeignKey(User)
+
+    def __str__(self):
+        return str(self.te)

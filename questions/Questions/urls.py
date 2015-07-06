@@ -23,6 +23,12 @@ urlpatterns = [
     url(r'^signup/',views.sign_up),
     url(r'^logout/',views.log_out),
     url(r'^submit/',views.addques),
-    url(r'^leaderboard/',views.leaderboard)
+    url(r'^leaderboard/',views.leaderboard),
+    url(r'^my_questions/',views.my_ques),
+    url(r'^view/',views.question),
+    url(r'^save/',views.save),
+    url(r'^delete/',views.delete),
+    url(r'^staff_view',views.staff_view),
+    url(r'^upvote/',views.upvote)
 
 ]

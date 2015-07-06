@@ -47,7 +47,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a style = "font-size:20px;" href="#">Leader Board</a>
+                        <a style = "font-size:20px;" href="/leaderboard/">LeaderBoard</a>
                     </li>
                     <li>
                         <a style = "font-size:20px;" href="#">Contact</a>
@@ -62,12 +62,12 @@
     <!-- Page Content -->
     <div class="container">
     <div class="row-fluid">
-        <div class="span12" style = "padding-top:25px;">
+        <div class="span12" style = "padding-top:50px;">
             <div class="span6">
                 <div class="area">
                     <form class="form-horizontal" action="/signup/" method="post">
                         <div class="heading">
-                            <h4 class="form-heading">Sign Up</h4>
+                            <h3 class="form-heading">Sign Up</h3>
                         </div>
                         
                         <div class="control-group">
@@ -128,12 +128,13 @@
                             </div>
                         </div>
 
-                        <div class="alert alert-info">
+                        {% if not up_form %}
+                        <div class="alert alert-error">
                             <button class="close" data-dismiss="alert" type=
-                            "button">×</button> <strong>Confirmation:</strong>
-                            
-                            Thank you for your registration.
+                            "button">×</button> <strong>Sign up unsuccessful!</strong>
+                            Please provide valid authorization or try different username.
                         </div>
+                        {% endif %}
                     </form>
                 </div>
             </div>
@@ -141,7 +142,7 @@
                 <div class="area">
                     <form class="form-horizontal" action="/login/" method="post">
                         <div class="heading">
-                            <h4 class="form-heading">Sign In</h4>
+                            <h3 class="form-heading">Sign In</h3>
                         </div>
 
                         
@@ -174,16 +175,18 @@
                             </div>
                         </div>
 
+                        {% if not in_form %}
                         <div class="alert alert-error">
                             <button class="close" data-dismiss="alert" type=
                             "button">×</button> <strong>Access Denied!</strong>
                             Please provide valid authorization.
                         </div>
+                        {% endif %}
                     </form>
                 </div>
             </div>
 
-            
+
         </div>
     </div>
 </div>

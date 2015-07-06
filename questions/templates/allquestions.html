@@ -56,19 +56,13 @@ th{
                     <li>
                         <a style = "font-size:20px;" href="/leaderboard/">LeaderBoard</a>
                     </li>
-                    {% if request.user.is_authenticated and not request.user.is_staff %}
-                    <li>
-                        <a style = "font-size:20px;" href="/my_questions">My Questions</a>
-                    </li>
-                    {% endif %}
+                    
                     <li>
                         <a style = "font-size:20px;" href="#">Contact</a>
                     </li>
-                    {% if request.user.is_authenticated %}
-                    <li style = "margin-left:280px;">
+                    <li style = "margin-left:370px;">
                         <a style = "font-size:20px;" href="/logout/">Logout</a>
                     </li>
-                    {% endif %}
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -78,23 +72,27 @@ th{
 
     <!-- Page Content -->
     <div class="container">
-  <h2 style="text-align:center;padding-top:15px;">Leader Board</h2>
+  <h2 style="text-align:center;padding-top:15px;">Questions</h2>
             
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Ques Count</th>
-        <th>Upvotes</th>
+        <th>Question no</th>
+        <th>Link</th>
       </tr>
     </thead>
     <tbody>
       
-      {% for i in student %}
+      {% for i in questions %}
       <tr>
-        <td>{{ i.user.first_name }} {{ i.user.last_name}}</td>
-        <td>{{ i.count }}</td>
-        <td>{{ i.upvotes }}</td>
+        <td>Question {{ i.id }}</td>
+        <td>
+            <a href="/staff_view/?x={{ i.id }}">
+                <button id="submit" name="submit" class="btn btn-primary">
+                View
+                </button>    
+            </a>
+        </td>
       </tr>
       {% endfor %}
 
